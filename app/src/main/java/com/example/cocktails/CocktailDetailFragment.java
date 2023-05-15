@@ -20,6 +20,13 @@ import android.widget.TextView;
 public class CocktailDetailFragment extends Fragment {
     private long cocktailId;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            cocktailId = savedInstanceState.getLong("cocktailId");
+        }
+    }
 
     public CocktailDetailFragment() {
         // Required empty public constructor
@@ -45,6 +52,12 @@ public class CocktailDetailFragment extends Fragment {
             description.setText(cocktail.getRecipe());
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putLong("cocktailId", cocktailId);
+    }
+
     public void setCocktail(long id) {
         this.cocktailId = id;
     }
