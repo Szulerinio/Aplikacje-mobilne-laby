@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/textDescription" />
-    <FrameLayout
-            android:id="@+id/stoper_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <fragment
+        android:name="com.example.cocktails.StoperFragment"
+        android:id="@+id/stoper_container"
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        android:layout_height="match_parent" />
 </LinearLayout>
