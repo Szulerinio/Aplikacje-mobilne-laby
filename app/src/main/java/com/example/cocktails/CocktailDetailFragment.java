@@ -36,7 +36,8 @@ public class CocktailDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cocktail_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_cocktail_detail, container, false);
+        return view;
     }
 
 
@@ -50,7 +51,12 @@ public class CocktailDetailFragment extends Fragment {
             title.setText(cocktail.getName());
             TextView description = (TextView) view.findViewById(R.id.textDescription);
             description.setText(cocktail.getRecipe());
+
+            StoperFragment stoper = ( StoperFragment) getChildFragmentManager().findFragmentById(R.id.stoper_container);
+            stoper.setSeconds(cocktail.getDuration());
+
         }
+
     }
 
     @Override

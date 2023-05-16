@@ -1,5 +1,6 @@
 package com.example.cocktails;
 
+import java.util.Timer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Button;
@@ -16,14 +17,19 @@ import android.view.ViewGroup;
  */
 public class StoperFragment extends Fragment implements View.OnClickListener  {
 
-    private int seconds = 0;
+    private int seconds = 60;
+    private int currentSeconds = 60;
     private boolean running;
     private boolean wasRunning;
     public StoperFragment() {
         // Required empty public constructor
     }
 
-//
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+        this.currentSeconds = seconds;
+    }
+    //
 //    public static StoperFragment newInstance(String param1, String param2) {
 //        StoperFragment fragment = new StoperFragment();
 //        Bundle args = new Bundle();
@@ -92,15 +98,13 @@ public class StoperFragment extends Fragment implements View.OnClickListener  {
         }
     }
 
-    void onClickStart() {
-        running = true;
-    }
+    void onClickStart() { running = true; }
     void onClickStop() {
         running = false;
     }
     void onClickReset() {
         running = false;
-        seconds = 0;
+        currentSeconds = seconds;
     }
 
     private void runStoper(View view) {
@@ -109,13 +113,13 @@ public class StoperFragment extends Fragment implements View.OnClickListener  {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                int hours = seconds / 3600;
-                int minutes = (seconds % 3600) / 60;
-                int secs = seconds % 60;
+                int hours = currentSeconds / 3600;
+                int minutes = (currentSeconds % 3600) / 60;
+                int secs = currentSeconds % 60;
                 String time = String.format("%d:%02d:%02d", hours, minutes, secs);
                 timeView.setText(time);
                 if (running) {
-                    seconds++;
+                    currentSeconds--;
                 }
                 handler.postDelayed(this, 1000);
             }
