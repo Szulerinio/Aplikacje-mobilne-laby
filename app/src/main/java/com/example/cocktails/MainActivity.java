@@ -3,6 +3,7 @@ package com.example.cocktails;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.cocktails.ui.main.MainFragment;
 import android.content.Intent;
@@ -13,6 +14,8 @@ public class MainActivity extends AppCompatActivity implements CocktailListFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
