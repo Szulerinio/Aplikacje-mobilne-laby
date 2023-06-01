@@ -7,8 +7,30 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.cocktails.ui.main.MainFragment;
 import android.content.Intent;
-
+import android.view.MenuItem;
+import android.view.Menu;
 public class MainActivity extends AppCompatActivity implements CocktailListFragment.Listener{
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Przygotowanie menu i dodanie elementów do paska aplikacji
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.toolbar: //IDK if this is correct id but im going to sleep lol
+// Kod wykonywany po kliknięciu elementu Action_Activity
+                Intent intent = new Intent(this, ActionActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

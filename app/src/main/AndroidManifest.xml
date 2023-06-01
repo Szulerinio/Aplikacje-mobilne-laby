@@ -12,6 +12,10 @@
             android:theme="@style/MotywAplikacji"
             tools:targetApi="31">
         <activity
+                android:name=".ActionActivity"
+                android:label="@string/action_activity_title"
+                android:exported="false"/>
+        <activity
                 android:name=".TempActivity"
                 android:exported="false">
         </activity>
