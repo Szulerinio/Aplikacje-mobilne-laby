@@ -1,7 +1,9 @@
 package com.example.cocktails;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.widget.Toolbar;
 
 public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_COCKTAIL_ID = "id";
