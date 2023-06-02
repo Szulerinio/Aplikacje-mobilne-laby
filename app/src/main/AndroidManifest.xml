@@ -11,11 +11,15 @@
             android:supportsRtl="true"
             android:theme="@style/MotywAplikacji"
             tools:targetApi="31">
-        <activity
-                android:name=".ActionActivity"
-                android:label="@string/action_activity_title"
-                android:exported="false"/>
-        <activity
+
+        <activity android:name=".ActionActivity"
+                  android:label="@string/action_title"
+                  android:parentActivityName=".MainActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity" />
+        </activity>
+                 <activity
                 android:name=".TempActivity"
                 android:exported="false">
         </activity>

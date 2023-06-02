@@ -9,4 +9,5 @@
 
     <string name="action_activity_title">Action Activity</string>
     <string name="action_title">Action_Activity</string>
+    <string name="action_share">Share</string>
 </resources>
